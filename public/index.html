@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f2"><title>Student Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main id="authView" class="auth-layout">
+    <section class="auth-story">
+      <a class="brand" href="/"><span class="brand-mark">SP</span> Student Portfolio</a>
+
+    </section>
+    <section class="auth-panel"><div class="auth-box">
+      <div class="auth-tabs"><button class="tab active" data-mode="login">Sign in</button><button class="tab" data-mode="register">Create account</button></div>
+      <h2 id="authTitle">Sign in to your <span class="accent-word">portfolio.</span></h2><p id="authSubtitle" class="muted">Enter your email and password to continue.</p>
+      <form id="authForm" class="form-stack">
+        <label id="nameField" class="field hidden">Your name<input name="name" autocomplete="name" placeholder="Enter your name" maxlength="70"></label>
+        <label class="field">Email address<input name="email" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+        <label class="field">Password<input name="password" type="password" autocomplete="current-password" placeholder="At least 8 characters" minlength="8" required></label>
+        <button class="button primary full" type="submit"><span id="authButtonText">Sign in</span><span>↗</span></button>
+        <p id="authMessage" class="message" role="status"></p>
+      </form><p class="auth-privacy">Your profile and projects are saved to your account.</p>
+    </div><footer class="auth-footer"><span>STUDENT PORTFOLIO</span><span>PROFILE · SKILLS · PROJECTS</span></footer></section>
+  </main>
+
+  <div id="appView" class="app hidden">
+    <header class="topbar"><a class="brand" href="#top"><span class="brand-mark">SP</span> Student Portfolio</a><nav><a href="#about">About</a><a href="#work">Projects</a><a href="#skills">Skills</a></nav><div class="top-actions"><span id="navName" class="nav-name"></span><button id="logoutBtn" class="button quiet">Log out <span>↗</span></button></div></header>
+    <main id="top" class="portfolio-wrap">
+      
+      <section class="hero-grid"><div class="hero-main"><div class="avatar" id="avatar">S</div><h1 id="displayName">Your name<br><em><span class="accent-word">Portfolio</span></em></h1><p id="displayHeadline" class="hero-headline">Student</p><div class="hero-meta"><span>↳ <b id="displayLocation">Location not added</b></span><span>✳ Projects and skills</span></div></div>
+        <aside class="hero-aside"><p id="displayBio">Add a short introduction about yourself.</p><button id="editProfileBtn" class="text-button">Edit profile <span>↗</span></button><div class="aside-decoration">✳</div></aside></section>
+      <section id="work" class="section work-section"><div class="section-heading"><div><h2>Projects</h2></div><button id="addProjectBtn" class="button dark"><span>＋</span> Add a project</button></div><div id="projectList" class="project-grid"></div></section>
+      <section id="skills" class="section skills-section"><div><h2>Skills</h2></div><div class="skills-content"><div id="skillList" class="skill-list"></div><button id="editSkillsBtn" class="text-button">Edit skills <span>↗</span></button></div></section>
+      <section id="about" class="bottom-note"><span class="note-star" aria-hidden="true">✓</span><p id="portfolioHint">Add your profile details, skills and first project to get started.</p></section>
+    </main>
+    <footer class="site-footer"><a class="brand" href="#top"><span class="brand-mark">SP</span> Student Portfolio</a><span>STUDENT PORTFOLIO</span><a href="#top">BACK TO TOP ↑</a></footer>
+  </div>
+
+  <dialog id="profileDialog" class="modal"><form id="profileForm" method="dialog"><div class="modal-top"><button class="icon-button" type="button" data-close>×</button></div><h2>Edit profile</h2><p class="muted">Update the details shown on your portfolio.</p><label class="field">Name<input name="name" required maxlength="70"></label><label class="field">Headline<input name="headline" maxlength="120" placeholder="Add a short headline"></label><label class="field">Location<input name="location" maxlength="80" placeholder="Enter your location"></label><label class="field">About you<textarea name="bio" rows="4" maxlength="500" placeholder="Write a short introduction about yourself"></textarea></label><p class="message" data-form-message></p><button class="button primary full">Save changes <span>↗</span></button></form></dialog>
+  <dialog id="skillsDialog" class="modal"><form id="skillsForm" method="dialog"><div class="modal-top"><button class="icon-button" type="button" data-close>×</button></div><h2>Update your skills</h2><p class="muted">Separate each skill with a comma. Add up to 12.</p><label class="field">Skills<input name="skills" placeholder="HTML, CSS, JavaScript"></label><p class="message" data-form-message></p><button class="button primary full">Save skills <span>↗</span></button></form></dialog>
+  <dialog id="projectDialog" class="modal"><form id="projectForm" method="dialog"><div class="modal-top"><button class="icon-button" type="button" data-close>×</button></div><h2 id="projectModalTitle">Add a project</h2><p class="muted">Enter the details of a project you have worked on.</p><input type="hidden" name="projectId"><label class="field">Project title<input name="title" required maxlength="90" placeholder="e.g. Student Portfolio Webpage"></label><label class="field">Description<textarea name="description" rows="3" required maxlength="500" placeholder="What does this project do?"></textarea></label><label class="field">Tools or skills<input name="tech" maxlength="120" placeholder="HTML, CSS, JavaScript"></label><label class="field">Project link <span class="optional">OPTIONAL</span><input name="link" type="url" maxlength="300" placeholder="https://"></label><p class="message" data-form-message></p><button class="button primary full">Save project <span>↗</span></button></form></dialog>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="/app.js"></script>
+</body></html>
+
+
+
+
